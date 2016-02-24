@@ -51,7 +51,7 @@ router.route('/')
       var palette = new Palette();
       palette.title = req.body.title;
       palette.colors = req.body.colors;
-
+// console.log(req.body.colors);
       palette.save(function(err) {
         if (err) res.send(err);
 
@@ -127,7 +127,7 @@ router.route('/')
   .get(function(req, res) {
     Palette.find(function(err, palettes) {
       if (err) res.send(err);
-
+      console.log(palettes);
       res.json(palettes);
     });
   });

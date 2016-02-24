@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var PaletteSchema = new Schema({
   title: String,
-  colors: [String]
+  colors: String
 });
 
-module.exports = mongoose.model('Palette', PaletteSchema); 
+module.exports = mongoose.model('Palette', PaletteSchema);
