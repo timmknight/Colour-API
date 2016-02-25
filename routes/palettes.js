@@ -50,7 +50,11 @@ router.route('/')
       console.log(req.body.colors);
       var palette = new Palette();
       palette.title = req.body.title;
-      palette.colors = req.body.colors;
+      palette.colors[0] = req.body.color1;
+      palette.colors[1] = req.body.color2;
+      palette.colors[2] = req.body.color3;
+      palette.colors[3] = req.body.color4;
+
 
 // console.log(req.body.colors);
       palette.save(function(err) {
