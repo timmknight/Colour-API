@@ -50,10 +50,7 @@ router.route('/')
       console.log(req.body.colors);
       var palette = new Palette();
       palette.title = req.body.title;
-      palette.color1 = req.body.color1;
-      palette.color2 = req.body.color2;
-      palette.color3 = req.body.color3;
-      palette.color4 = req.body.color4;
+      palette.colors = req.body.colors;
 
 // console.log(req.body.colors);
       palette.save(function(err) {
@@ -132,7 +129,7 @@ router.route('/')
     Palette.find(function(err, palettes) {
       if (err) res.send(err);
       console.log(palettes);
-      res.json(palettes);
+      res.send(palettes);
     });
   });
 
