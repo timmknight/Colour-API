@@ -30,27 +30,31 @@ router.post('/palettes', function(req, res) {
 router.route('/')
   .post(function(req, res) {
 
-    if(!req.body.title) {
-      res.json({
-        message: 'Title cannot be blank'
-      });
-    } else if(req.body.title.length > 30) {
-      res.json({
-        message: 'Title cannot be more than 30 characters'
-      });
-    } else if(req.body.colors.length <= 0) {
-        res.json({
-          message: 'Color palette cannot be blank'
-        })
-    } else if(req.body.colors.length === 1) {
-      res.json({
-        message: 'Color palette must have more than one color'
-      });
-    } else {
+    // if(!req.body.title) {
+    //   res.json({
+    //     message: 'Title cannot be blank'
+    //   });
+    // } else if(req.body.title.length > 30) {
+    //   res.json({
+    //     message: 'Title cannot be more than 30 characters'
+    //   });
+    // } else if(req.body.colors.length <= 0) {
+    //     res.json({
+    //       message: 'Color palette cannot be blank'
+    //     })
+    // } else if(req.body.colors.length === 1) {
+    //   res.json({
+    //     message: 'Color palette must have more than one color'
+    //   });
+    // } else {
       console.log(req.body.colors);
       var palette = new Palette();
       palette.title = req.body.title;
-      palette.colors = req.body.colors;
+      palette.color1 = req.body.color1;
+      palette.color2 = req.body.color2;
+      palette.color3 = req.body.color3;
+      palette.color4 = req.body.color4;
+
 // console.log(req.body.colors);
       palette.save(function(err) {
         if (err) res.send(err);
@@ -59,7 +63,7 @@ router.route('/')
           message: 'Palette created'
         });
     });
-  }
+  // }
 
 
 
@@ -133,21 +137,23 @@ router.route('/')
   });
 
 // on routes that end in /palettes/:palette_id
-router.route('/palettes/:palette_id')
-  .get(function(req, res) {
-    Palette.findById(req.params.palette_id, function(err, palette) {
-      if (err) res.send(err);
-
-      res.json(palette);
-    });
-  })
+router.route('/:palette_id')
+  // .get(function(req, res) {
+  //   Palette.findById(req.params.palette_id, function(err, palette) {
+  //     if (err) res.send(err);
+  //
+  //     res.json(palette);
+  //   });
+  // })
 
   .put(function(req, res) {
     Palette.findById(req.params.palette_id, function(err, palette) {
       if (err) res.send(err);
 
-      palette.title = req.body.title;
-      palette.colors = req.body.colors;
+      // palette.title = req.body.title;
+      // palette.colors = req.body.colors;
+
+      palette.likes++;
 
       palette.save(function(err) {
         if (err) res.send(err);
