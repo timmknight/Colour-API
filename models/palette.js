@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var PaletteSchema = new Schema({
   title:  String,
-  colors: [String],
+  colors: [String, String, String, String],
   likes:  { type: Number, default: 0 }
 });
 
