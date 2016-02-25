@@ -7,6 +7,8 @@ var PaletteSchema = new Schema({
   color2: String,
   color3: String,
   color4: String,
+  colors: [String, String, String, String],
+  colorarr: [String],
   likes:  { type: Number, default: 0 }
 });
 
