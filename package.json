@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "watch": "mocha --watch /test/*-spec.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "chai": "^3.5.0",
     "express": "^4.13.4",
-    "mongoose": "^4.4.4"
+    "mongoose": "^4.4.4",
+    "should": "^8.3.1",
+    "supertest": "^1.2.0"
   }
 }
